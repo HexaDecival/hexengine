@@ -1,8 +1,8 @@
 --[[
     @12/3/17
-    @skipleb studios
-    @core engine
-    @hexadecival & waffloid
+    @hexengine
+    @main.lua
+    @hexadecival
 --]]
 
 --classes
