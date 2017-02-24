@@ -1,6 +1,6 @@
 return {
 	width = 12,
-	tilesize = 24,
+	tilesize = 8*4,
 	--0 = solid voxel
 	--5 = roadman (test)
 	--0 = air voxel

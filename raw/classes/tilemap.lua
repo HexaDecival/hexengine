@@ -10,8 +10,8 @@
 local tilemap = {
 	tiledata = {
 		[0] = nil, --air
-		[1] = {image="box",size=vec.new(24,24)}, --solid
-		[5] = {image=love.graphics.newImage("images/mandem_idle.png"),size=vec.new(2,2)} --roadman
+		[1] = {image=love.graphics.newImage("images/grey.png"),size=vec.new(4,4),zindex=3}, --solid
+		[5] = {image=love.graphics.newImage("images/mandem_idle.png"),size=vec.new(2,2),zindex=1} --roadman
 	}
 }
 function tilemap:load(mapdata)
@@ -23,7 +23,7 @@ function tilemap:load(mapdata)
 		x = x + 1
 		local tile = self.tiledata[tiles[i]]
 		if tile ~= nil then
-			obj.new(tile.image,vec.new(tilesize*x,tilesize*y),tile.size,"tile"..x.."|"..y)
+			obj.new(tile.image,vec.new(tilesize*x,tilesize*y),tile.size,tile.zindex,"tile"..x.."|"..y)
 		end
 		if x == mapdata.width then
 			x = 0

@@ -9,8 +9,8 @@
 --object class
 obj = {}
 obj.__index = obj 
-function obj.new(image,pos,size,name) 
-	local class = setmetatable({name=name or "object",image=image,pos=pos or vec.new(),size = size or vec.new(),components = {}},obj)
+function obj.new(image,pos,size,zindex,name) 
+	local class = setmetatable({zindex=zindex,name=name or "object",image=image,pos=pos or vec.new(),size = size or vec.new(),components = {}},obj)
 	table.insert(_G.drawlist,class)
 	return class
 end
