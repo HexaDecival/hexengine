@@ -19,6 +19,7 @@ local gui = require("classes/gui")
 
 --data
 local mapdata = require("maps/test")
+local uiz
 
 --game code
 do
@@ -53,12 +54,12 @@ do
 	--@hexadecival
 	--gui creation
 	gui.new("text",vec.new(0,0),vec.new(2,2),5,"HexEngine v0.1")
-	love.window.setFullscreen(true)
+	love.window.setFullscreen(false)
 end
 
 --core loop
 function love.draw()
-	cam:update()
+	cam:update()	
 	render:update()
 	updateinput()
 end

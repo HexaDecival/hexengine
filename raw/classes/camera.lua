@@ -18,8 +18,8 @@ function cam:setpos(pos)
 	self.pos = pos
 end
 function cam:update()
-	love.graphics.translate(-cam.pos.x,-cam.pos.y)
 	local center = vec.new(love.graphics.getWidth()/2,love.graphics.getHeight()/2)
 	cam:setpos(self.target.pos-center) 
+	love.graphics.translate(-cam.pos.x,-cam.pos.y)
 end
 return cam

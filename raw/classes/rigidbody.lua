@@ -15,9 +15,17 @@ function rigidbody.new(obj,velocity,drag,maxvelocity)
 	return class
 end
 function coldetect(a,b) --SIMPLISTIC AS HELL METHOD for now LOL
-	if (a.pos-b.pos):mag() <= (a.size/2+b.size/2):mag() then
-		return true
-	end
+--	if a.image == "Box" then
+		if (a.pos-b.pos):mag() <= (a.size/2+b.size/2):mag() then
+			return true
+		end
+--	else
+--		local as = vec.new(a.truewidth,a.trueheight)
+--		local bs = vec.new(b.truewidth,b.trueheight)
+--		if (a.pos-b.pos):mag() <= (as/2+bs/2):mag() then
+--			return true
+--		end
+--	end
 end
 function rigidbody:update()
 	local dx, dy = self.drag.x,self.drag.y
@@ -37,11 +45,10 @@ function rigidbody:update()
 	end
 	local colliding = false
 	local correction = vec.new(0,0)
-	for i, obj in pairs(drawlist) do
-		if obj ~= self.obj then
-			if coldetect(self.obj,obj) then
-				print("col : "..self.obj.name.." : true : "..obj.name)
-				print("col : "..self.obj.name.." : false : "..obj.name)
+	for i, iobj in pairs(drawlist) do
+		if iobj ~= self.obj then
+			if coldetect(self.obj,iobj) then
+				print("col : "..self.obj.name.." : true : "..iobj.name)
 				colliding = true
 			end
 		end
