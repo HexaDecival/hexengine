@@ -18,7 +18,7 @@ function render:update()
 	table.sort(_G.drawlist,orderz)
 	for index, obj in pairs (_G.drawlist) do
 		obj:updatecomponents()
-		if ((obj.pos-vec.new(400,300))-cam.pos):mag() < render.dist then
+		if ((obj.pos-vec.new(400,300))-cam.pos):mag() < render.dist or obj.guiclass then
 			obj:draw()
 		end
 	end	

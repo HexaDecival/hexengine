@@ -15,17 +15,16 @@ function rigidbody.new(obj,velocity,drag,maxvelocity)
 	return class
 end
 function coldetect(a,b) --SIMPLISTIC AS HELL METHOD for now LOL
---	if a.image == "Box" then
-		if (a.pos-b.pos):mag() <= (a.size/2+b.size/2):mag() then
-			return true
-		end
---	else
---		local as = vec.new(a.truewidth,a.trueheight)
---		local bs = vec.new(b.truewidth,b.trueheight)
---		if (a.pos-b.pos):mag() <= (as/2+bs/2):mag() then
---			return true
---		end
---	end
+	function bounding_box_check(x1,y1,w1,h1,x2,y2,w2,h2)
+		return x1 < x2+w2 and
+			   x2 < x1+w1 and
+			   y1 < y2+h2 and
+			   y2 < y1+h1
+	end
+	return bounding_box_check(
+		a.pos.x,a.pos.y,a.size.x,a.size.y,
+		b.pos.x,b.pos.y,b.size.x,b.size.y
+	)
 end
 function rigidbody:update()
 	local dx, dy = self.drag.x,self.drag.y

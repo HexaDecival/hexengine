@@ -1,4 +1,4 @@
---[[
+	--[[
     @2/21/17
     @hexengine
     @gui.lua
@@ -10,7 +10,7 @@
 gui = {}
 gui.__index = gui 
 function gui.new(image,pos,size,zindex,text)
-	local class = setmetatable({zindex=zindex,image=image,type=type,pos=pos,size=size,text=(text or ""),components={}},gui) 
+	local class = setmetatable({guiclass=true,zindex=zindex,image=image,type=type,pos=pos,size=size,text=(text or ""),components={}},gui) 
 	table.insert(_G.drawlist,class)
 	return class
 end

@@ -54,6 +54,7 @@ do
 	--@hexadecival
 	--gui creation
 	gui.new("text",vec.new(0,0),vec.new(2,2),5,"HexEngine v0.1")
+	ui_obj = gui.new("text",vec.new(0,30),vec.new(1,1),5,"")
 	love.window.setFullscreen(false)
 end
 
@@ -62,4 +63,5 @@ function love.draw()
 	cam:update()	
 	render:update()
 	updateinput()
+	ui_obj.text = "Clock: "..os.clock()
 end
